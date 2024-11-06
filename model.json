@@ -1,0 +1,80 @@
+{
+  "modelTopology": {
+    "class_name": "Sequential",
+    "config": [
+      {
+        "class_name": "Conv2D",
+        "config": {
+          "filters": 32,
+          "kernel_size": [3, 3],
+          "activation": "relu",
+          "input_shape": [64, 64, 1]
+        }
+      },
+      {
+        "class_name": "MaxPooling2D",
+        "config": {
+          "pool_size": [2, 2]
+        }
+      },
+      {
+        "class_name": "Conv2D",
+        "config": {
+          "filters": 64,
+          "kernel_size": [3, 3],
+          "activation": "relu"
+        }
+      },
+      {
+        "class_name": "MaxPooling2D",
+        "config": {
+          "pool_size": [2, 2]
+        }
+      },
+      {
+        "class_name": "Flatten",
+        "config": {}
+      },
+      {
+        "class_name": "Dense",
+        "config": {
+          "units": 128,
+          "activation": "relu"
+        }
+      },
+      {
+        "class_name": "Dropout",
+        "config": {
+          "rate": 0.5
+        }
+      },
+      {
+        "class_name": "Dense",
+        "config": {
+          "units": 3,
+          "activation": "softmax"
+        }
+      }
+    ],
+    "name": "sleep_sound_model"
+  },
+  "weightsManifest": [
+    {
+      "paths": [
+        "group1-shard1of1.bin"
+      ],
+      "weights": [
+        {
+          "name": "conv2d/kernel",
+          "shape": [3, 3, 1, 32],
+          "dtype": "float32"
+        },
+        {
+          "name": "dense/kernel",
+          "shape": [128, 3],
+          "dtype": "float32"
+        }
+      ]
+    }
+  ]
+}
